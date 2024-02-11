@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,21 +24,47 @@
 
             <TextView
                 android:id="@+id/address"
-                android:textSize="24sp"
-                android:text="@string/location"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:textColor="#616161"
+                android:textSize="24sp">
 
             </TextView>
+
             <TextView
                 android:id="@+id/updated_at"
-                android:textSize="14sp"
-                android:text="@string/updated_at"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:text="@string/updated_at"
+                android:textColor="#5D4037"
+                android:textSize="14sp">
 
             </TextView>
+
+            <EditText
+                android:id="@+id/cityInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFF"
+                android:hint="@string/enter_city2"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColorHint="#0D47A1"
+                android:autofillHints="" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addressContainer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/submit"
+            android:textColor="#795548"
+            tools:ignore="UnknownId" />
+
         <LinearLayout
             android:id="@+id/overviewContainer"
             android:orientation="vertical"
@@ -47,22 +74,25 @@
 
             <TextView
                 android:id="@+id/status"
-                android:textSize="18sp"
-                android:layout_gravity="center"
-                android:text="Clear Sky"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Clear Sky"
+                android:textColor="#1B5E20"
+                android:textSize="18sp"
                 tools:ignore="HardcodedText">
 
             </TextView>
+
             <TextView
                 android:id="@+id/temp"
-                android:textSize="90sp"
-                android:fontFamily="sans-serif-thin"
-                android:layout_gravity="center"
-                android:text="@string/_24_c"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-thin"
+                android:text="@string/_24_c"
+                android:textColor="#D32F2F"
+                android:textSize="90sp">
 
             </TextView>
             <LinearLayout
@@ -73,19 +103,22 @@
 
                 <TextView
                     android:id="@+id/temp_min"
-                    android:text="@string/min_temp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:text="@string/min_temp"
+                    android:textColor="#006064">
 
                 </TextView>
                <Space android:layout_width="50dp"
                    android:layout_height="wrap_content">
                </Space>
+
                 <TextView
                     android:id="@+id/temp_max"
-                    android:text="@string/max_temp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:text="@string/max_temp"
+                    android:textColor="#006064">
 
                 </TextView>
 
@@ -109,16 +142,16 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:background="#3CF1EBF1"
+                    android:background="#FFD47F"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/sunrise"
-                        android:tint="#FFF"
                         android:contentDescription="TODO"
-                        tools:ignore="ContentDescription,HardcodedText">
+                        tools:ignore="ContentDescription,HardcodedText"
+                        app:tint="#FFF">
 
 
                     </ImageView>
@@ -158,15 +191,15 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:background="#3CF1EBF1"
+                    android:background="#FFD47F"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/sunset"
-                        android:tint="#FFF"
-                        tools:ignore="ContentDescription">
+                        tools:ignore="ContentDescription"
+                        app:tint="#FFF">
 
 
                     </ImageView>
@@ -193,6 +226,7 @@
                         android:textColor="#000000"
                         android:textSize="14sp">
 
+
                     </TextView>
                 </LinearLayout>
                 <Space android:layout_width="10dp"
@@ -205,15 +239,15 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:background="#3CF1EBF1"
+                    android:background="#FFD47F"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/wind"
-                        android:tint="#FFF"
-                        tools:ignore="ContentDescription">
+                        tools:ignore="ContentDescription"
+                        app:tint="#FFF">
 
 
                     </ImageView>
@@ -264,15 +298,15 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:background="#3CF1EBF1"
+                    android:background="#FFD47F"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/pressure"
-                        android:tint="#FFF"
-                        tools:ignore="ContentDescription">
+                        tools:ignore="ContentDescription"
+                        app:tint="#FFF">
 
 
                     </ImageView>
@@ -311,15 +345,16 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:background="#3CF1EBF1"
+                    android:background="#FFD47F"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
+
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/humidity"
-                        android:tint="#FFF"
-                        tools:ignore="ContentDescription">
+                        tools:ignore="ContentDescription,ImageContrastCheck"
+                        app:tint="#FFF">
 
 
                     </ImageView>
@@ -358,15 +393,15 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="8dp"
-                    android:background="#3CF1EBF1"
+                    android:background="#FFD47F"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:src="@drawable/info"
-                        android:tint="#FFF"
-                        tools:ignore="ContentDescription">
+                        tools:ignore="ContentDescription"
+                        app:tint="#FFF">
 
 
                     </ImageView>

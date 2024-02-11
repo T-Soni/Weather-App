@@ -6,6 +6,8 @@ import android.annotation.SuppressLint
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -18,14 +20,24 @@ import java.util.Locale
 
 class MainActivity : ComponentActivity() {
 
-    val CITY: String = "Durgapur,IN"
-    val API: String = "3f14bd7535c80384e465905a1a4bfdf0"
+    private lateinit var cityInput: EditText
+    private lateinit var submitButton: Button
+
+    private val API: String = "3f14bd7535c80384e465905a1a4bfdf0"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        weatherTask().execute()
+         cityInput = findViewById(R.id.cityInput)
+         submitButton = findViewById(R.id.submitButton)
+
+        submitButton.setOnClickListener {
+            val city = cityInput.text.toString()
+            if (city.isNotEmpty()) {
+                weatherTask().execute(city)
+            }
+        }
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -43,9 +55,10 @@ class MainActivity : ComponentActivity() {
         override fun doInBackground(vararg params: String?): String? {
             val response: String?
             response = try {
-                URL("https://api.openweathermap.org/data/2.5/weather?q=$CITY&units=metric&appid=$API")
+                URL("https://api.openweathermap.org/data/2.5/weather?q=${params[0]}&units=metric&appid=$API")
                     .readText(Charsets.UTF_8)
             } catch (e: Exception) {
+
                 null
             }
             return response
